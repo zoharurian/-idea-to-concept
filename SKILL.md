@@ -183,4 +183,3 @@ key_features:
   - visual 2x2 comparison
   - fidelity ladder
   - zero text-only slides
-```
