@@ -1,185 +1,213 @@
-# Idea to Concept — Innovation Sprint Skill
+# Idea to Concept — Deep Innovation Sprint Skill v4.0
 *By Zohar Urian*
+
+---
 
 ## Overview
 
-This skill transforms a raw innovation challenge into a **visually rich, ideation-style PowerPoint presentation** (19 slides) that looks and feels like real design sprint work.
+This skill runs a **4-phase deep innovation process** that produces a 22–26 slide ideation deck that looks and feels like the output of a real design team after a week of work.
 
-The output includes: phone wireframe mockups, sticky note concept cards, user scenario slides, day-in-life timeline, visual 2×2 comparison, fidelity ladder, and next steps. Zero text-only slides.
+**The output must feel like a professional deliverable — not a generated deck.**
 
-**Default language: English. Hebrew only if user explicitly requests it.**
+Every concept is grounded in real research. Every idea is illustrated as a working prototype. Every recommendation is backed by evidence.
+
+**Default language: English. Hebrew only if explicitly requested.**
 
 ---
 
 ## When to Trigger
 
-Trigger when the user:
-- Provides a challenge, problem, or "how might we" statement
-- Says: "run an Idea to Concept", "build a concept deck", "innovation sprint", "design sprint", "develop my idea"
+- User provides a challenge, innovation problem, or "how might we" statement
+- User says: "run Idea to Concept", "innovation sprint", "design sprint", "ideation process", "concept deck"
 
 ---
 
-## Process
-
-### Step 1 — Receive the Challenge
-The user provides a challenge. Can be rough — a sentence, a problem, a question.
-
-### Step 2 — Ask Max 2 Clarifying Questions
-Only if essential. Pick the most relevant:
-- Who is the primary user or audience?
-- What constraint matters most (age group, platform, context)?
-
-**Skip if the challenge is clear enough.**
-
-### Step 3 — Generate Content & Run Template
-
-1. Read the full template at `~/skills/idea-to-concept/template.js`
-2. Fill in the `CHALLENGE_DATA` object at the top with rich, specific content
-3. Run: `node ~/skills/idea-to-concept/template.js`
-4. The PPTX will be saved to the Desktop
+## THE 4 PHASES — Follow in Order. Never Skip.
 
 ---
 
-## How to Fill CHALLENGE_DATA
+### PHASE 1 — Deep Research (mandatory, before any content)
 
-Fill every field with **specific, imaginative content** — not generic placeholders.
+Run all of these web searches. Extract real findings. Save them internally before writing any slide content.
 
-### title
-Short challenge title. Example: `"Helping Kids Cope with War Anxiety"`
+**Search 1 — Industry landscape**
+```
+[industry] AI transformation trends 2025 2026
+[industry] digital innovation case studies results
+[industry] technology adoption challenges
+```
 
-### hmw
-The full "How might we..." question.
+**Search 2 — Real pain points**
+```
+[target user role] biggest frustrations challenges survey
+[industry] employee pain points workflow problems
+[industry] customer complaints unmet needs
+```
 
-### language
-`"en"` for English, `"he"` for Hebrew (only if user requested).
+**Search 3 — Existing solutions**
+```
+[industry] [challenge type] software tools platforms
+[challenge] startups solutions market
+best tools for [challenge] compared
+```
 
-### audience
-One sentence describing who you're designing for.
+**Search 4 — Analogous inspiration**
+```
+[similar problem] solved different industry
+[challenge type] innovation success story unexpected industry
+```
 
-### context
-Why this problem matters right now — 1–2 sentences, specific.
+**Search 5 — Market data**
+```
+[industry] market size growth statistics 2025
+[challenge] ROI impact data research
+[industry] AI adoption rate statistics
+```
 
-### stats (3 items)
-Real or researched statistics. Each has:
-- `number`: big bold stat (e.g., `"72%"`, `"1 in 4"`, `"3×"`)
-- `label`: what it means in plain language
+**After all searches, extract:**
+- 5 sharp insights (things you didn't know before searching)
+- 3 real statistics with sources
+- 4 existing solutions with their critical gaps
+- 2 analogous examples from other industries
+- 1 clear opportunity statement: the specific gap none of the existing solutions address
 
-### personas (2 items)
-Each persona:
-- `name`: evocative name, not "User A"
-- `age`: specific number
-- `description`: one sentence, specific role/situation
-- `pains`: 3 specific pain points as short phrases
-- `color`: hex color (no `#`)
-
-### dayInLife (4 items)
-4 real moments in the user's day. Each:
-- `time`: clock time (e.g., `"07:30"`)
-- `scene`: what's happening (short)
-- `emotion`: single emoji
-- `detail`: one sentence of context
-
-### assumptions (4 items)
-Sharp, testable hunches. Each:
-- `text`: the assumption in plain language
-- `testable`: `"High"`, `"Medium"`, or `"Low"`
-
-### concepts (4 items)
-Each concept needs a **distinct mechanism** — not just different features.
-Each:
-- `name`: evocative product name
-- `tagline`: one punchy sentence
-- `features`: 3 short feature labels
-- `hunch`: what assumption this tests
-- `screenType`: choose from `breathing` | `mood` | `story` | `parent` | `chat` | `game`
-- `accentColor`: hex color (no `#`)
-
-### scenarios (2 items)
-2 real user moments. Each:
-- `who`: name + age
-- `when`: specific time and place
-- `feeling`: short emotional description
-- `action`: what they do next
-- `conceptIndex`: which concept (0–3) they're using
-
-### testingPlan (4 items)
-One test per assumption. Each:
-- `assumption`: short label
-- `method`: specific test method
-- `who`: who you'd test with
-- `timeline`: when (e.g., `"Week 1"`)
-
-### topConcepts
-Array of 2 concept indices to highlight (e.g., `[0, 2]`)
-
-### openQuestions (6 items)
-Honest, strategic questions the team doesn't have answers to yet.
-
-### nextSteps (3 items)
-Concrete actions. Each:
-- `step`: short action name
-- `detail`: one sentence of what to do
-- `timeline`: when
-- `owner`: who does it
+**Do not proceed to Phase 2 until this is complete.**
 
 ---
 
-## Content Quality Rules
+### PHASE 2 — Grounded Concept Generation
 
-**Concepts**: Each must feel distinct in its core mechanism — not just features.
-- Bad: "an app with breathing exercises"
-- Good: "a guided breathing companion that responds to the child's voice and adjusts pace in real time"
+Generate exactly 4 concepts. Each must:
 
-**Assumptions**: Be honest and specific.
-- Bad: "users will like the app"
-- Good: "children aged 6–10 prefer character-led experiences over direct instruction"
+1. Be rooted in a specific Phase 1 insight (state which one)
+2. Have a completely distinct core mechanism from the other 3
+3. Address a specific gap found in the existing solutions research
+4. Be specific enough that you could build it tomorrow
+5. Have a clear testable hunch
 
-**Personas**: Make them feel real.
-- Bad: "a child who is anxious"
-- Good: "Tamar, 8, lives in the south, has nightmares about sirens, loves drawing"
+**Concept quality test — apply to each concept:**
+- Could this concept exist in a different industry? If yes, it's too generic. Make it specific.
+- Does this concept's core mechanism overlap with any other concept? If yes, differentiate it.
+- Can you draw a 5-step user flow for this concept right now? If not, it's not concrete enough.
 
----
-
-## Screen Types Reference
-
-Choose `screenType` based on the concept's core interaction:
-
-| screenType | Best for |
-|------------|----------|
-| `breathing` | Calm / relaxation / mindfulness concepts |
-| `mood` | Check-in / self-awareness / emotion tracking |
-| `story` | Narrative / character-led / therapeutic storytelling |
-| `parent` | Dashboard / monitoring / parent-facing features |
-| `chat` | Conversational AI / chatbot / guided dialogue |
-| `game` | Gamification / quests / rewards / playful mechanics |
+**For each concept, define:**
+- Name: specific product/service name
+- Tagline: exact value proposition (what it does + for whom + measurable outcome)
+- Core mechanism: the specific way it works (1–2 sentences, technical enough to build)
+- 3 features: specific capabilities, not generic categories
+- User flow: 5 steps the user takes (this becomes the flow diagram)
+- Screen type: which UI pattern best shows the core interaction
+- Hunch tested: the specific assumption this concept proves or disproves
+- Research basis: which Phase 1 insight this addresses
 
 ---
 
-## Output
+### PHASE 3 — Build All Visual Assets
 
-- File: `~/Desktop/idea-to-concept-[slug].pptx`
-- 19 slides
-- Author: Zohar Urian
+For each concept, build:
+
+**A. Phone/screen mockup** — using PptxGenJS shapes
+- Show the exact screen at the most critical user moment
+- Not a generic dashboard — the specific interaction that is unique to this concept
+- Real UI elements: buttons with labels, data fields, navigation, content cards
+
+**B. User flow diagram** — 5-step horizontal flow
+- Each step is a box with: step name + what the user does + what the system does
+- Arrows connecting steps
+- Highlight the "magic moment" — the step where the concept delivers its core value
+
+**C. User scenario** — a real moment in time
+- Specific person + specific context + specific problem + concept in use + outcome
+- Phone mockup showing the exact screen at that moment
+
+**D. Service blueprint** (for the top concept only)
+- 4 swim lanes: User Actions / Frontstage / Backstage / Support Systems
+- 5 steps across
+- Shows how the concept works as a complete system
+
+**E. Implementation roadmap** (new in v4)
+- 3 phases: Quick Win (0–3 months) / Build (3–6 months) / Scale (6–12 months)
+- Each phase: what gets built + who owns it + success metric
+- Visual timeline with milestone markers
+
+---
+
+### PHASE 4 — Assemble Presentation
+
+Read ~/skills/idea-to-concept/template.js, fill CHALLENGE_DATA with all Phase 1-3 content, add the new slides, then run:
+node ~/skills/idea-to-concept/template.js
+
+---
+
+## Full Slide Structure (22–26 Slides)
+
+1  | Cover | Dark + title + HMW + dot pattern
+2  | The Challenge | Quote block left + 3 context facts right
+3  | Research Method | 5 search categories as icons
+4  | Key Insights | 5 insight cards — dark bg, numbered
+5  | Why It Matters | 3 REAL stats — oversized numbers
+6  | Existing Solutions | Gap matrix — 4 solutions x 4 columns
+7  | The Opportunity | Single bold statement
+8  | Who We're Designing For | 2 persona cards
+9  | A Day in Their Life | Horizontal timeline
+10 | Key Assumptions | 4 sticky-note cards in 2x2 grid
+11 | Concept 1 | Phone mockup LEFT + concept details RIGHT
+12 | Concept 1 Flow | 5-step horizontal user flow diagram
+13 | Concept 2 | Phone mockup CENTER + details
+14 | Concept 2 Flow | 5-step horizontal user flow diagram
+15 | Concept 3 | Phone mockup RIGHT + details
+16 | Concept 4 | Phone mockup + details
+17 | User Scenario A | Scene + phone screen + emotional arc
+18 | User Scenario B | Different user + moment
+19 | Concept Comparison | Visual 2x2 grid — mini screens + axes
+20 | Service Blueprint | 4 swim lanes x 5 steps
+21 | Fidelity Ladder | 4 stages: sketch to product
+22 | Testing Plan | 4 test cards
+23 | Implementation Roadmap | 3-phase timeline
+24 | Open Questions | Sticky board
+25 | Next Steps | 3-step horizontal timeline
+26 | Closing | Dark + strong statement + brand
+
+---
+
+## Quality Checklist — Run Before Saving
+
+Claude Code must verify every item before delivering:
+
+- [ ] Phase 1 web searches completed — at least 5 real searches
+- [ ] All 3 statistics are real and sourced from research
+- [ ] All 4 existing solutions are real companies/tools found in research
+- [ ] Opportunity statement addresses a gap found in research
+- [ ] Each concept references a specific research insight
+- [ ] No two concepts share the same core mechanism
+- [ ] Every phone screen shows the specific interaction unique to that concept
+- [ ] User flow diagrams show 5 real steps with system responses
+- [ ] Service blueprint shows a complete system
+- [ ] Roadmap has specific actions and measurable metrics
+- [ ] Zero text-only slides
+
+If any item is unchecked — fix it before saving.
+
+---
+
+## Language
+
+- **Default: English**
+- Hebrew only if user explicitly requests it
 
 ---
 
 ## Skill Metadata
 
-```yaml
 name: idea-to-concept
-version: 3.0
+version: 4.0
 author: Zohar Urian
 language: English (Hebrew on request)
-output: PPTX, 19 slides
+output: PPTX 22-26 slides
 input: Innovation challenge
-max_clarifying_questions: 2
+phases:
+  1: Deep Research (web search)
+  2: Grounded Concept Generation
+  3: Visual Asset Building
+  4: Presentation Assembly
 requires: ~/skills/idea-to-concept/template.js
-visual_style: ideation / design sprint
-key_features:
-  - phone wireframe mockups (6 screen types)
-  - sticky note cards
-  - day-in-life timeline
-  - user scenario slides
-  - visual 2x2 comparison
-  - fidelity ladder
-  - zero text-only slides
