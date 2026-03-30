@@ -14,123 +14,123 @@ const pptxgen = require("pptxgenjs");
 // FILL THIS IN — your challenge content
 // ─────────────────────────────────────────────
 const CHALLENGE_DATA = {
-  title: "Your Challenge Title",
-  hmw: "How might we...",
-  language: "en", // "en" or "he"
-  audience: "Who you're designing for",
-  context: "Why this matters now",
+  title: "Helping Israeli Kids Cope with War Anxiety",
+  hmw: "How might we help Israeli children aged 6–14 cope with war-related anxiety through a mobile app?",
+  language: "en",
+  audience: "Israeli children aged 6–14 and their parents, navigating ongoing conflict",
+  context: "Millions of Israeli children face persistent anxiety from sirens, displacement, and conflict exposure. Mental health services are overwhelmed, and most parents lack tools to help their kids at home.",
+
+  stats: [
+    { number: "~2M", label: "Israeli children directly exposed to ongoing conflict and security alerts at home" },
+    { number: "40%", label: "of children in active conflict zones develop measurable anxiety or trauma symptoms" },
+    { number: "1 in 3", label: "parents say they don't know how to talk to their child about fear and war" },
+  ],
 
   personas: [
     {
-      name: "Persona Name",
-      age: 10,
-      description: "Brief description",
-      pains: ["Pain 1", "Pain 2", "Pain 3"],
-      color: "FF6B6B",
+      name: "Tamar",
+      age: 8,
+      description: "Lives in the south, has nightmares about sirens, loves drawing — goes completely quiet when the adults around her get scared",
+      pains: ["Can't find words for what she's feeling", "Absorbs adult panic without releasing it", "Loses appetite and sleep after sirens"],
+      color: "5BBFB5",
     },
     {
-      name: "Persona 2 Name",
-      age: 38,
-      description: "Brief description",
-      pains: ["Pain 1", "Pain 2", "Pain 3"],
-      color: "A8DADC",
+      name: "Yonatan",
+      age: 13,
+      description: "Obsessively follows news updates, understands the geopolitical situation better than most adults — but hasn't slept properly in weeks",
+      pains: ["Too old for 'kids stuff', too young to process alone", "Feels helpless and angry with no outlet", "Pushes parents away exactly when he needs them most"],
+      color: "F4845F",
     },
   ],
 
   dayInLife: [
-    { time: "7:00", scene: "Wakes up", emotion: "😰", detail: "First thought is about..." },
-    { time: "12:00", scene: "Lunchtime", emotion: "😟", detail: "Alone, no one to..." },
-    { time: "16:00", scene: "After school", emotion: "😐", detail: "Comes home and..." },
-    { time: "21:00", scene: "Bedtime", emotion: "😰", detail: "Can't sleep because..." },
+    { time: "07:15", scene: "Wakes up to news sounds", emotion: "😰", detail: "Parents have the TV on — Tamar goes still and stops eating breakfast" },
+    { time: "12:30", scene: "Siren drill at school", emotion: "😨", detail: "Runs to the shelter with classmates — tries to look calm while her heart races" },
+    { time: "16:00", scene: "Alone at home", emotion: "😶", detail: "Stares at the wall, doesn't know what to do with the heavy feeling inside" },
+    { time: "21:30", scene: "Bedtime", emotion: "😖", detail: "Can't fall asleep — the siren sound keeps replaying in her head" },
   ],
 
   assumptions: [
-    { text: "Assumption 1 — what we believe", testable: "High" },
-    { text: "Assumption 2 — what we believe", testable: "Medium" },
-    { text: "Assumption 3 — what we believe", testable: "High" },
-    { text: "Assumption 4 — what we believe", testable: "Low" },
+    { text: "Children aged 6–10 can express anxiety through visual metaphors (weather, color) better than words", testable: "High" },
+    { text: "Short 2–3 min micro-interactions work better than longer session-style exercises for anxious kids", testable: "High" },
+    { text: "Parents need to be part of the experience — not just observers — for families to trust and use the tool", testable: "Medium" },
+    { text: "Familiar characters and warm safety cues lower anxiety activation before therapeutic content lands", testable: "Medium" },
   ],
 
   concepts: [
     {
-      name: "Concept 1 Name",
-      tagline: "One-line description",
-      features: ["Feature A", "Feature B", "Feature C"],
-      hunch: "This tests whether users prefer X",
-      screenType: "breathing", // breathing | mood | story | parent | chat | game
-      accentColor: "A8DADC",
-    },
-    {
-      name: "Concept 2 Name",
-      tagline: "One-line description",
-      features: ["Feature A", "Feature B", "Feature C"],
-      hunch: "This tests whether users prefer Y",
+      name: "Sky Check",
+      tagline: "A daily emotional weather check-in that responds to exactly how you feel right now",
+      features: ["6 weather moods to tap", "2-min matched calming activity", "Weekly mood pattern for parents"],
+      hunch: "Tests whether children can name emotions through visual metaphor without needing words",
       screenType: "mood",
-      accentColor: "FF6B6B",
+      accentColor: "5BBFB5",
     },
     {
-      name: "Concept 3 Name",
-      tagline: "One-line description",
-      features: ["Feature A", "Feature B", "Feature C"],
-      hunch: "This tests whether users prefer Z",
+      name: "Shelter Stories",
+      tagline: "Short illustrated audio stories where child characters find courage in the middle of hard moments",
+      features: ["3–5 min audio + illustrations", "Validated by child psychologists", "Designed to listen to together"],
+      hunch: "Tests whether narrative is a safer container for processing fear than direct instruction",
       screenType: "story",
       accentColor: "7B61FF",
     },
     {
-      name: "Concept 4 Name",
-      tagline: "One-line description",
-      features: ["Feature A", "Feature B", "Feature C"],
-      hunch: "This tests whether users prefer W",
-      screenType: "parent",
-      accentColor: "FFB347",
+      name: "Brave Board",
+      tagline: "A gamified coping tracker that celebrates emotional strength the same way games celebrate achievements",
+      features: ["Earn badges for real coping actions", "Visual emotional strength tracker", "Weekly parent summary"],
+      hunch: "Tests whether gamified milestones build and sustain daily coping habits over time",
+      screenType: "game",
+      accentColor: "F9C74F",
+    },
+    {
+      name: "My Safe Corner",
+      tagline: "A personalized in-app safe room built from sounds, colors, and objects that calm only you",
+      features: ["Custom calming environment builder", "On-demand grounding sequence", "Record a parent voice message"],
+      hunch: "Tests whether personalization creates a stronger felt sense of safety than generic calming content",
+      screenType: "breathing",
+      accentColor: "F4845F",
     },
   ],
 
   scenarios: [
     {
-      who: "Persona Name, age 10",
-      when: "9pm, lying in bed",
-      feeling: "Anxious, can't stop thinking",
-      action: "Opens the app and...",
-      conceptIndex: 0, // which concept they're using
+      who: "Tamar, age 8",
+      when: "9:30pm, lying in bed after a hard day",
+      feeling: "Heart racing, replaying the siren sound on loop",
+      action: "Opens Sky Check, taps the stormy cloud, and is guided into a 2-min breathing bubble with her favorite character",
+      conceptIndex: 0,
     },
     {
-      who: "Parent, age 38",
-      when: "Morning, before work",
-      feeling: "Worried about their child",
-      action: "Checks the dashboard and...",
-      conceptIndex: 3,
+      who: "Avi, Tamar's dad, age 40",
+      when: "7:10am, before leaving for work",
+      feeling: "Guilty and helpless — he knows she's not sleeping well but doesn't know how to help",
+      action: "Opens the parent summary, sees 4 stormy days in a row, and gets a suggestion to try a Shelter Story together at bedtime tonight",
+      conceptIndex: 1,
     },
   ],
 
   testingPlan: [
-    { assumption: "Assumption 1", method: "5 user interviews with concept cards", who: "Target users", timeline: "Week 1" },
-    { assumption: "Assumption 2", method: "Wizard of Oz prototype test", who: "10 children", timeline: "Week 2" },
-    { assumption: "Assumption 3", method: "A/B card sort", who: "Parents + children", timeline: "Week 2" },
-    { assumption: "Assumption 4", method: "Diary study (3 days)", who: "5 families", timeline: "Week 3" },
+    { assumption: "Visual mood metaphors work for ages 6–10", method: "Show 15 children weather icons vs. emotion word cards — measure recognition speed and accuracy", who: "Children aged 6–10", timeline: "Week 1" },
+    { assumption: "2–3 min micro-interactions are enough", method: "Wizard of Oz: run 2-min vs. 8-min versions — measure drop-off and stated return intent", who: "8 children aged 7–12", timeline: "Week 1" },
+    { assumption: "Parents need to be in the experience", method: "Interview 10 parents: 'What would make you trust and use this with your child?'", who: "10 parents", timeline: "Week 2" },
+    { assumption: "Safety cues reduce activation before content", method: "A/B: same story with warm character + palette vs. plain text — measure comfort before and after", who: "12 children", timeline: "Week 2" },
   ],
 
-  topConcepts: [0, 1], // indices of concepts to show first
+  topConcepts: [0, 3],
 
   openQuestions: [
-    "Does the app help in the moment or mainly as a daily habit?",
-    "How do we prevent screen time guilt for parents?",
-    "Should content be created by professionals or community?",
-    "What role should schools play in adoption?",
-    "How do we measure emotional impact, not just engagement?",
-    "What happens when the war ends — does the need disappear?",
+    "Does the app help most in peak anxiety moments, or as a daily preventive habit?",
+    "Should parent mode and child mode be separate flows or a single shared experience?",
+    "How do we update content responsibly as the security situation evolves in real time?",
+    "What's the right age segmentation — 6–9 and 10–14, or finer granularity?",
+    "How do we measure emotional impact, not just session engagement and streaks?",
+    "What happens to the app's role when the conflict changes or eventually ends?",
   ],
 
   nextSteps: [
-    { step: "Run concept conversations", detail: "5 conversations with target users using low-fidelity cards", timeline: "This week", owner: "Design team" },
-    { step: "Build clickable prototype", detail: "Figma prototype of top 2 concepts, test with 10 users", timeline: "Week 2-3", owner: "Product + Design" },
-    { step: "Define success metrics", detail: "Agree on what 'working' looks like before building", timeline: "Week 1", owner: "Product lead" },
-  ],
-
-  stats: [
-    { number: "72%", label: "of children show anxiety symptoms during prolonged conflict" },
-    { number: "3×", label: "more likely to develop long-term anxiety without early intervention" },
-    { number: "1 in 4", label: "parents report not knowing how to help their child cope" },
+    { step: "Concept conversations", detail: "Run 10 parent–child pair sessions (6–10 and 11–14 separately) with low-fidelity concept cards", timeline: "This week", owner: "Design team" },
+    { step: "Psychologist validation", detail: "Partner with 2 Israeli child psychologists to validate emotional safety of all content and screen flows", timeline: "Week 2", owner: "Product lead" },
+    { step: "Sky Check prototype", detail: "Build a clickable prototype of the Sky Check check-in loop and test with 15 children", timeline: "Weeks 3–4", owner: "Product + Design" },
   ],
 };
 
